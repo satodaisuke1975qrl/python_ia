@@ -17,3 +17,6 @@ print(japanese_to_english['水'])
 # 要素の取得（無い時はNoneが出力される）
 print(japanese_to_english.get('風'))
 print(japanese_to_english.get('山'))
+print(japanese_to_english.get('山', 'ありません'))
+
+
