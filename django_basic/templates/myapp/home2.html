@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>{{ title }}</h1>
+<!--<p>{{ 1 }}</p>-->
+<p>{{ prime_list }}</p>
+{% for primes in prime_list %}
+    {{ primes }}
+{% endfor %}
+<!--<p>{{ user }}</p>-->
+<p>{{ user.name }}</p>
+<p>{{ user.greed }}</p>
+</body>
+</html>

@@ -24,4 +24,6 @@ urlpatterns = [
     # myapp.urls(myapp/urls.py)を読み込む
     # 第一引数（一番左のクォーテーション）にurlを書き込める
     path('', include('myapp.urls')),
+
+    path('myapp2/', include('myapp2.urls'))
 ]
