@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>詳細</title>
+</head>
+<body>
+  <h2>詳細</h2>
+    <p>{{ article.title }}</p>
+    <p>{{ article.text | linebreaks | urlize }}</p>
+    <p>{{ article.created_at | date:'Y/m/d H:i:s' }}</p>
+    <p>{{ article.category.name }}</p>
+
+    <div>タグ：
+        {% for what_tag in article.tags.all %}
+            {{ what_tag.name }}
+        {% endfor %}
+    </div>
+</body>
+</html>

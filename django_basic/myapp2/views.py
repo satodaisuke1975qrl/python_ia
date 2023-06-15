@@ -12,6 +12,29 @@ class StaffListView(generic.ListView):
     template_name = 'myapp2/staff_list.html'
 
 
+class StaffDetailView(generic.DetailView):
+    model = Staff
+    template_name = 'myapp2/staff_detail.html'
+
+    def get_object(self, queryset=None):
+
+        # self.kwargsには、URL内のint:pkといった部分が含まれている
+        staff = Staff.objects.get(pk=self.kwargs['pk'])
+        # →Staff.objects.get(pk=1)  # 今回、URLは/staff_detail/1/
+        # →Staff.objects.get(id=1)  # 今回のpkはidフィールドのこと
+
+        # ターミナルのログに表示される
+        print(staff)
+
+        return staff
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        staff = self.get_object()
+        context['books'] = staff.rented_books.all()
+        return context
+
+
 class StaffInformationCreateView(CreateView):
     model = StaffInformation
     form_class = StaffInformationForm

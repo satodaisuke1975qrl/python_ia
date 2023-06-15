@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>記事一覧</title>
+</head>
+<body>
+    <h2>記事一覧</h2>
+
+    {% for article in article_list %}
+    <div>
+        {{ article.title }} / {{ article.created_at }} / {{ article.category }} /
+
+        {% for what_tag in article.tags.all %}
+            {{ what_tag.name }}
+        {% endfor %}
+    </div>
+    {% endfor %}
+
+
+</body>
+</html>

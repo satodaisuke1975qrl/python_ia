@@ -36,7 +36,10 @@ class Staff(models.Model):
     # モデルのフィールドが多すぎるときや、一部のフィールドに頻繁にアクセスする場合は
     # 頻繁にアクセスするフィールドを別のモデルとして定義し
     # 必要になった時だけ、OneToOneで紐づいたモデルの情報にアクセスする
+    id = models.PositiveIntegerField('id', primary_key=True)
+
     name = models.CharField('ビジネスネーム', max_length=100)
+
     information = models.OneToOneField(
         StaffInformation, on_delete=models.CASCADE,
         verbose_name='社員情報', null=True, blank=True

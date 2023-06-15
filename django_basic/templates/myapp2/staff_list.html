@@ -6,7 +6,7 @@
 </head>
 <body>
   <h1>スタッフの一覧</h1>
-    <!-- モデル名小文字_list -->
+    <!-- in のあとは、モデル名小文字_list の形（_listをつけないと表示されない）-->
     {% for staff in staff_list %}
         <!-- モデルのインスタンスが渡されている 変数名.フィールド -->
         <div>{{ staff.name }}</div>
