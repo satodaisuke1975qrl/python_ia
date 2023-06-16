@@ -2,7 +2,7 @@ from django.views import generic
 from django.views.generic import CreateView, DetailView, UpdateView, FormView
 from django.urls import reverse_lazy
 from .models import StaffInformation, Department, Book, Staff
-from .forms import StaffInformationForm, DepartmentForm, BookForm, StaffForm
+from .forms import StaffInformationForm, DepartmentForm, BookForm, StaffForm, StaffInformationUpdateForm
 
 # from django.shortcuts import render, redirect
 
@@ -86,3 +86,10 @@ def staff_information(request):
         }
         return render(request, 'myapp/staff_information_create.html', context)
 """
+
+
+class StaffInformationUpdateView(generic.UpdateView):
+    model = StaffInformation
+    form_class = StaffInformationUpdateForm
+    template_name = 'myapp2/staff_information_update.html'
+    success_url = reverse_lazy('myapp:home')

@@ -7,11 +7,11 @@
     <!-- staffの部分はobjectと書き換えられる  -->
     <!-- モデル名（小文字） or 「object」で良い-->
             <p>社員id : {{ staff.pk }}</p><br>
-            <div>社員id : {{ staff.id }}</div>
-            <div>社員名 : {{ staff.name }}</div>
-            <div>メールアドレス : {{ staff.information.email|default:'未入力' }}</div>
-            <div>住所 : {{ staff.information.address }}</div>
-            <div>部署 : {{ staff.department.name }}</div>
+            <p>社員id : {{ staff.id }}</p>
+            <p>社員名 : {{ staff.name }}</p>
+            <p>メールアドレス : {{ staff.information.email|default:'未入力' }}</p>
+            <p>住所 : {{ staff.information.address }}</p>
+            <p>部署 : {{ staff.department.name }}</p>
 
 
             <!-- ボタンの場合はifを使う-->
@@ -24,11 +24,11 @@
 
             <!-- ManyToManyの場合はfor文で回す   -->
             <!-- インスタンス名.ManyToManyの名前.all という書き方にする（末尾に.allを忘れない）      -->
-            <div>現在借りている本 :
+            <p>現在借りている本 :
                     {% for book in staff.rented_books.all %}
                         {{ book }} /
                     {% endfor %}
-            </div>
+            </p>
 
             <p>
             {% for book in books %}

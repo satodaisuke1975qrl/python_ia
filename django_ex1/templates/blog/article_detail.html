@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>詳細</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div>
   <h2>詳細</h2>
     <p>{{ article.title }}</p>
     <p>{{ article.text | linebreaks | urlize }}</p>
@@ -16,5 +14,7 @@
             {{ what_tag.name }}
         {% endfor %}
     </div>
-</body>
-</html>
+    <br>
+</div>
+
+{% endblock %}

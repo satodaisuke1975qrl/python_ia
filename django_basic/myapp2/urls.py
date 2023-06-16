@@ -13,4 +13,5 @@ urlpatterns = [
     # <int:pk> int型の値が埋め込まれ、pkという名前でビューで使える
     # detail_viewではこの書き方が強制されている
     path('staff_detail/<int:pk>/', views.StaffDetailView.as_view(), name='staff_detail'),
+    path('staff_information_update/<int:pk>/', views.StaffInformationUpdateView.as_view(), name='staff_information_update'),
 ]

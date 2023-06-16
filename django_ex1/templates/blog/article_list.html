@@ -1,22 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>記事一覧</title>
+  <meta charset="UTF-8">
+  <title>Python 講座</title>
 </head>
 <body>
+
+<div>
+
+    <nav>
+      <p>
+          <a href={% url "blog:article_list" %}>記事一覧へ</a>
+          <a href={% url "blog:tag_list" %}>タグ一覧へ</a>
+      </p>
+      <div id="content">
+      {% block content %}{% endblock %}
+      </div>
+    </nav>
+
     <h2>記事一覧</h2>
 
     {% for article in article_list %}
-    <div>
-        {{ article.title }} / {{ article.created_at }} / {{ article.category }} /
+    <p>
+        <a href="{% url 'blog:article_detail' article.pk %}">{{ article.title }} / {{ article.created_at }} / {{ article.category }} /
 
         {% for what_tag in article.tags.all %}
             {{ what_tag.name }}
         {% endfor %}
-    </div>
+        </a>
+    </p>
     {% endfor %}
-
-
+</div>
 </body>
 </html>

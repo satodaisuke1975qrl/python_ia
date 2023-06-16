@@ -30,3 +30,19 @@ class StaffForm(forms.ModelForm):
     class Meta:
         model = Staff
         fields = ('name', 'information', 'department', 'rented_books')
+
+
+class StaffInformationUpdateForm(forms.ModelForm):
+
+    # フォームが作る入力欄のHTMLに、一括でclass="input"のように指定したい場合は、次のような _init_メソッドを作成してください。
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-input'
+
+    class Meta:
+        model = Staff
+        fields = ('name', 'information', 'department', 'rented_books')
+        widgets = {
+            'address': forms.Textarea
+        }

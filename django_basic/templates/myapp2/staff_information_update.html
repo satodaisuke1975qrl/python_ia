@@ -1,0 +1,20 @@
+<!doctype html>
+  <html lang="ja">
+  <head>
+  <meta charset="UTF-8">
+  <title>Python 講座</title>
+  </head>
+  <body>
+  <h1>社員情報作成ページ</h1>
+  <form method="post">
+
+<!--  必ず記述する    -->
+      {% csrf_token %}
+
+<!--  各入力欄をpタグで囲む divで囲むなら {{ form.as_div }} にする  -->
+<!--  テーブルにしたい場合は、テーブルタグで囲んでから　{{ form.as_table }}    -->
+      {{ form.as_p }}
+      <input type="submit" value="作成">
+  </form>
+  </body>
+  </html>
