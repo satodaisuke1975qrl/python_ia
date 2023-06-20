@@ -27,7 +27,7 @@ class SalesForText:
             return deficit
 
 
-sales = SalesForText('sales.txt')
+sales = SalesForText('../sales.txt')
 total_sales = sales.get_total()
 total_surplus = sales.get_surplus()
 total_deficit = sales.get_deficit()

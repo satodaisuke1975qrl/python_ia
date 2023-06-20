@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-$*pcz5b=5z-u9-4m^$f0pbxpoym^(jw8n(fxga1(w1sjstfj4f'
+SECRET_KEY = 'django-insecure-*b0%@rayz(ft113!459q4eukf56qwe@f-0^)5yixc^1eh0v-lu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,9 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'contacts.apps.ContactsConfig',
     'accounts.apps.AccountsConfig',
-    'crud.apps.CrudConfig',
-    'search.apps.SearchConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -57,7 +56,7 @@ ROOT_URLCONF = 'conf.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS':  [BASE_DIR / 'templates'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,16 +124,13 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Userモデルを追加したら、必ず変数追加
-# アプリケーション名.モデル名
+# カスタムユーザーモデルを作ったら必ず書く
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
-LOGIN_URL = 'accounts:login'
+# メールの内容をターミナルに表示
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-LOGIN_REDIRECT_URL = 'accounts:home'
-
-MEDIA_ROOT = BASE_DIR / 'media'
-
-MEDIA_URL = '/media/'
-
+# 送信元のメールアドレス
+# メールの送信の際に送信元を省略するとこれが使われる
+DEFAULT_FROM_EMAIL = 'sample@internetacademy.co.jp'
 

@@ -1,6 +1,6 @@
 # ファイル書き込み
 
-with open('sample.txt', 'w', encoding='utf-8') as file:
+with open('../sample.txt', 'w', encoding='utf-8') as file:
     file.write('1行目\n')
     file.write('2行目\n')
 

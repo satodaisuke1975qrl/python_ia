@@ -66,7 +66,7 @@ class SalesForCSV(SalesForText):
             return deficit
 
 
-csv_sales = SalesForCSV('sales.csv')
+csv_sales = SalesForCSV('../sales.csv')
 total_sales = csv_sales.get_total()
 total_surplus = csv_sales.get_surplus()
 total_deficit = csv_sales.get_deficit()

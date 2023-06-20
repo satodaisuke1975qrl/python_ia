@@ -1,4 +1,4 @@
-with open('sales.txt', 'r', encoding='utf-8') as sales:
+with open('../sales.txt', 'r', encoding='utf-8') as sales:
 
     total = 0
     surplus = 0

@@ -1,7 +1,9 @@
 from django.views import generic
 from .models import Goods
 from .forms import GoodsCreateForm, GoodsUpdateForm
+from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
+from django.shortcuts import redirect
 
 
 class GoodsCreate(generic.CreateView):
@@ -47,4 +49,24 @@ class GoodsDelete(generic.DeleteView):
     model = Goods
     template_name = 'crud/goods_delete.html'
     success_url = reverse_lazy('crud:goods_list')
+
+    # 削除処理の挙動を変更
+    # DBから削除するのではなく、専用のフィールド(state_flag)をFalseにすることで、削除したことにする
+    # 一覧画面からは消えるが、管理画面（admin）からは見えるようになっている
+    # メソッドを上書き
+    def form_valid(self, form):
+
+        # リダイレクト先のURLを変更
+        success_url = self.get_success_url()
+
+        # モデルインスタンス.フィールド名 = 値 で、書き換えや代入ができます
+        self.object.state_flag = False
+
+        # saveメソッドで、DBのレコードの更新や作成ができる
+        self.object.save()
+
+        # self.object.delete()  # これが本来の削除処理
+        return redirect(success_url)
+
+
 
