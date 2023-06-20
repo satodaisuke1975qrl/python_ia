@@ -28,6 +28,8 @@
             {{ what_tag.name }}
         {% endfor %}
         </a>
+
+        / <a href="{% url 'blog:article_delete' article.pk %}">削除</a>
     </p>
     {% endfor %}
 </div>

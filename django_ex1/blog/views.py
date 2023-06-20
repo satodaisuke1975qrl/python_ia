@@ -45,3 +45,9 @@ class ArticleUpdateView(generic.CreateView):
     template_name = 'blog/article_update.html'
     success_url = reverse_lazy('blog:article_list')
     form_class = ArticleUpdateForm
+
+
+class ArticleDeleteView(generic.DeleteView):
+    model = Article
+    template_name = "blog/article_delete.html"
+    success_url = reverse_lazy('blog:article_list')

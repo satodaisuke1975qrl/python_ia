@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+ 
+{% block content %}
+
+<div><a href="{% url 'crud:goods_list' %}">一覧へ戻る</a></div>
+
+<form method="post">
+    {% csrf_token %}
+    <p>"{{ goods.name }}"を削除してもよろしいですか?</p>
+    <input type="submit" value="削除">
+</form>
+ 
+{% endblock %}

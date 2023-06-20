@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+ 
+{% block content %}
+<a href="{% url 'crud:goods_list' %}">一覧へ戻る</a> / <a href="{% url 'crud:goods_update' goods.id %}">更新</a> / <a href="{% url 'crud:goods_delete' goods.id %}">削除</a>
+
+<h2>商品名：{{ goods.name }}</h2>
+{% if object.image %}
+  <p>商品画像：</p><img class="goods-image" src="{{ object.image.url }}/">
+{% endif %}
+<p>管理番号：{{ goods.management_code }}</p>
+<p>価格：{{ goods.price }}円</p>
+<p>発売日：{{ goods.release_date }}</p>
+<p>発売状況：{{ goods.release_flag }}</p>
+<p>商品説明：{{ goods.description }}</p>
+<p>運用状況：{{ goods.state_flag }}</p>
+ 
+{% endblock %}

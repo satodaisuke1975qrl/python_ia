@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+ 
+{% block content %}
+<a href="{% url 'crud:goods_list' %}">一覧へ戻る</a>
+
+<h2>商品情報更新ページ</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" id="save" value="更新">
+</form>
+ 
+{% endblock %}
