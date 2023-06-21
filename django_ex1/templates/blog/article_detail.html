@@ -17,4 +17,18 @@
     <br>
 </div>
 
+<div>
+    <h3>コメント欄</h3>
+        <div>
+            <!--  foreign keyで紐づかれたデータを全て取得する　-->
+            {% for comment in article.comment_set.all %}
+            <p>{{ comment.name }} : {{ comment.text | linebreaks }}</p>
+            {% endfor %}
+        </div>
+
+</div>
+
+<p>
+    <a href="{% url 'blog:comment_create' article.id %}">コメント作成ページへ</a>
+</p>
 {% endblock %}
